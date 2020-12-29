@@ -1,7 +1,6 @@
 ﻿package com.hansen.code1.model
 
 import com.hansen.code1.api.Api
-import com.hansen.code1.controler.LoginControler
 import java.util.*
 
 /**

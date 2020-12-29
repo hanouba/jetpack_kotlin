@@ -3,22 +3,17 @@ package com.hansen.code1
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
-import android.text.TextUtils
 import android.text.TextWatcher
-import android.view.View
-import androidx.core.widget.doOnTextChanged
-import com.hansen.code1.controler.LoginControler
+import com.hansen.code1.controler.LoginPresenter
 import com.hansen.code1.databinding.ActivityMain2Binding
-import com.hansen.code1.databinding.ActivityMainBinding
-import com.hansen.code1.model.UserModel
 
 
 class LoginActivity : AppCompatActivity(),
-    LoginControler.OnCheckUserNameStateCallBack, LoginControler.OnDoLoginStateChange {
+    LoginPresenter.OnCheckUserNameStateCallBack, LoginPresenter.OnDoLoginStateChange {
     lateinit var mBinding: ActivityMain2Binding
 
     private val loginControler by lazy {
-        LoginControler()
+        LoginPresenter()
     }
 
     /**

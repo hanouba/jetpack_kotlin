@@ -7,7 +7,7 @@ import com.hansen.code1.model.UserModel.Companion.STATE_LOGIN_LODING
 import com.hansen.code1.model.UserModel.Companion.STATE_LOGIN_SUCCESS
 import java.util.*
 
-class LoginControler {
+class LoginPresenter {
     private val userModel by lazy {
         UserModel()
     }
