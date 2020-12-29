@@ -1,6 +1,7 @@
 ﻿package com.hansen.code1.model
 
 import com.hansen.code1.api.Api
+import com.hansen.code1.controler.LoginControler
 import java.util.*
 
 /**
@@ -13,36 +14,34 @@ class UserModel {
 
     private val random = Random()
 
-    fun doLogin(
-        callBack: OnDoLoginStateChange ,
-        account : String,
-        password:String) {
-        //进行登录
-        callBack.onLoading()
-        //开始去调用登录的API
-        //有结果 此操作为耗时操作
-        // 0 1
-        val randomIndex : Int = random.nextInt(2)
-        if (randomIndex == 0) {
-            callBack.onLoginSuccess()
-        }else{
-            callBack.onLoginFail()
-        }
-
+    companion object {
+        const val STATE_LOGIN_LODING = 0
+        const val STATE_LOGIN_SUCCESS = 1;
+        const val STATE_LOGIN_FAILED = 2
     }
 
 
-    fun checkUserState(account: String,block:(Int)-> Unit) {
+    fun checkUserState(account: String, block: (Int) -> Unit) {
         //0 表示不可用 已经登录过
         // 1 表示可用 未登录过
         block.invoke(random.nextInt(2))
     }
 
-     interface OnDoLoginStateChange {
-        fun onLoading()
+    fun doLogin(
+        account: String,
+        password: String,
+        block: (Int) -> Unit
+    ) {
+        //进行登录
+        block.invoke(STATE_LOGIN_LODING)
+        val randomValue:Int = random.nextInt(2)
 
-        fun onLoginSuccess();
+        if (randomValue == 1) {
+            block.invoke(STATE_LOGIN_FAILED)
+        }else{
+            block.invoke(STATE_LOGIN_SUCCESS)
+        }
 
-        fun onLoginFail()
     }
+
 }
