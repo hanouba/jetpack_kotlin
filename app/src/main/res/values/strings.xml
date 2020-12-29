@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">201213</string>
+    <string name="tv_name">测试</string>
+    <string name="tv_version">1.0.0</string>
+    <string name="bt_login">登录</string>
+    <string name="et_username">用户名</string>
+    <string name="et_user_hint">请输入用户名</string>
+    <string name="et_psw_hint">请输入密码</string>
+    <string name="icon_ds">登录图标</string>
+    <string name="bt_text">测试</string>
+    <string name="tv_result">数据</string>
+    <string name="bt_m">加1</string>
+    <string name="bt_add">减1</string>
+</resources>
